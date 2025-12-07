@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive moving services by Jonk Movers Inc. - Residential, Commercial, Packing, Storage, and more. Professional movers in Toronto.">
+    <meta name="keywords" content="moving services Toronto, residential moving, commercial moving, packing services, storage solutions">
+    <title>Our Services - Jonk Movers Inc.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#2563EB',
+                        accent: '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans antialiased">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i class="fas fa-truck-moving text-4xl text-secondary mr-3"></i>
+                        <div>
+                            <span class="text-2xl font-bold text-primary">Jonk Movers</span>
+                            <span class="block text-xs text-gray-600">Inc.</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-secondary transition">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-secondary transition">About Us</a>
+                    <a href="services.html" class="text-primary font-semibold border-b-2 border-secondary pb-1">Services</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-secondary transition">Contact</a>
+                    <a href="contact.html" class="bg-secondary text-white px-6 py-3 rounded-lg hover:bg-primary transition shadow-md">
+                        Get a Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-secondary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-4 pb-6 space-y-3">
+                <a href="index.html" class="block text-gray-700 hover:text-secondary py-2">Home</a>
+                <a href="about.html" class="block text-gray-700 hover:text-secondary py-2">About Us</a>
+                <a href="services.html" class="block text-primary font-semibold py-2">Services</a>
+                <a href="contact.html" class="block text-gray-700 hover:text-secondary py-2">Contact</a>
+                <a href="contact.html" class="block bg-secondary text-white px-6 py-3 rounded-lg text-center hover:bg-primary transition">
+                    Get a Quote
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-primary to-slate-800 text-white pt-32 pb-20 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Our Moving Services</h1>
+            <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                Comprehensive moving solutions tailored to your unique needs. From residential to commercial, local to long-distance.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Residential Moving -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Residential Moving</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Peaceful home relocations handled with care. We understand the emotional aspect of moving homes and treat your belongings with the utmost respect.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Full home packing services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Furniture disassembly/assembly</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Safe transport of fragile items</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Commercial Moving -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Commercial/Office Moving</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Smooth office transitions with minimal downtime. We work around your schedule to ensure business continuity during the move.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>After-hours moving available</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Office equipment handling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>IT equipment relocation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Local Moving -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-map-marker-alt text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Local Toronto Moves</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Fast, affordable moves within Toronto & GTA. Perfect for those relocating within the city or nearby areas.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Same-day service available</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Competitive hourly rates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>No hidden fees</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Long-Distance Moving -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-route text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Long-Distance Moves</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Safe and secure transport across provinces. We handle interprovincial moves with precision and care.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Cross-Canada coverage</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Real-time tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Dedicated move coordinator</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Packing Services -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-box text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Packing & Unpacking</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Professional packing to protect every item. We use high-quality materials and proven techniques for maximum protection.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Premium packing materials</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Custom crating for valuables</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Unpacking services available</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Furniture Assembly -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Furniture Assembly</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Dismantling and re-assembling included. Our team expertly handles furniture of all types and sizes.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Disassembly & reassembly</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Hardware organization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Professional tools provided</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Storage Solutions -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-warehouse text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Storage Solutions</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Short and long-term secure storage options. Climate-controlled facilities to protect your belongings.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Climate-controlled units</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>24/7 security monitoring</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Flexible rental terms</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Apartment/Condo Moves -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-city text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Apartment & Condo Moves</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Navigating tight spaces the smart way. Experienced in dealing with elevators, stairs, and building regulations.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Elevator reservation coordination</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Stair navigation expertise</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Building regulation compliance</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Loading & Unloading -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-dolly text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Loading & Unloading</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Skilled handling to prevent damage. Perfect for those who prefer to drive their own truck or container.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Efficient loading techniques</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Space optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Heavy lifting specialists</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Specialty Items -->
+                <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2 border-t-4 border-secondary">
+                    <div class="bg-secondary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-music text-4xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Specialty Item Handling</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Expert care for pianos, artwork, antiques, and fragile items. We have the equipment and expertise for delicate moves.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Piano moving specialists</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Artwork & antique handling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-secondary mr-2 mt-1"></i>
+                            <span>Custom protection solutions</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-primary mb-4">Our Moving Process</h2>
+                <p class="text-xl text-gray-600">Simple, transparent, and stress-free</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-secondary text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Get a Quote</h3>
+                    <p class="text-gray-600">Contact us for a free, no-obligation estimate tailored to your needs.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-secondary text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Schedule Move</h3>
+                    <p class="text-gray-600">Choose a date and time that works best for you. We're flexible!</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-secondary text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">We Pack & Load</h3>
+                    <p class="text-gray-600">Our professional team handles everything with care and efficiency.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-secondary text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold">
+                        4
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Settle In</h3>
+                    <p class="text-gray-600">Relax in your new space while we unload and set everything up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-slate-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-xl text-gray-200 mb-8">Choose the service you need and let us handle the rest. Request your free quote today!</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition shadow-lg">
+                    Request a Quote
+                </a>
+                <a href="tel:+1234567890" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition shadow-lg">
+                    <i class="fas fa-phone mr-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-truck-moving text-3xl text-secondary mr-3"></i>
+                        <div>
+                            <span class="text-xl font-bold">Jonk Movers</span>
+                            <span class="block text-xs text-gray-400">Inc.</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Toronto's trusted moving partner for reliable and professional relocation services.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-secondary transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-secondary transition">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-secondary transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition">Residential Moving</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition">Commercial Moving</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition">Packing Services</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition">Storage Solutions</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-secondary mr-3 mt-1"></i>
+                            <span class="text-gray-400">Toronto, Ontario<br>Canada</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-secondary mr-3"></i>
+                            <a href="tel:+1234567890" class="text-gray-400 hover:text-secondary transition">+1 (xxx) xxx-xxxx</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-secondary mr-3"></i>
+                            <a href="mailto:info@jonkmovers.ca" class="text-gray-400 hover:text-secondary transition">info@jonkmovers.ca</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 Jonk Movers Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
