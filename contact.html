@@ -95,7 +95,7 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg text-primary mb-1">Address</h3>
-                                <p class="text-gray-600">Toronto, Ontario<br>Canada</p>
+                                <p class="text-gray-600">87 Jameson Avenue<br>Toronto, Ontario<br>Canada</p>
                             </div>
                         </div>
 
@@ -105,7 +105,8 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg text-primary mb-1">Phone</h3>
-                                <a href="tel:+1234567890" class="text-gray-600 hover:text-secondary transition">+1 (xxx) xxx-xxxx</a>
+                                <a href="tel:+14374521402" class="text-gray-600 hover:text-secondary transition">+1 (437) 452-1402</a><br>
+                                <a href="tel:+16476338660" class="text-gray-600 hover:text-secondary transition">+1 (647) 633-8660</a>
                             </div>
                         </div>
 
@@ -115,7 +116,7 @@
                             </div>
                             <div>
                                 <h3 class="font-bold text-lg text-primary mb-1">Email</h3>
-                                <a href="mailto:info@jonkmovers.ca" class="text-gray-600 hover:text-secondary transition">info@jonkmovers.ca</a>
+                                <a href="mailto:ssaazifrank6@gmail.com" class="text-gray-600 hover:text-secondary transition">ssaazifrank6@gmail.com</a>
                             </div>
                         </div>
 
@@ -151,7 +152,15 @@
                         <h2 class="text-3xl font-bold text-primary mb-2">Request a Quote</h2>
                         <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you shortly.</p>
                         
-                        <form id="contact-form" class="space-y-6">
+                        <form id="contact-form" action="https://formspree.io/f/xbljanlg" method="POST" class="space-y-6">
+                            <!-- Honeypot field for spam protection (hidden from users) -->
+                            <input type="text" name="_gotcha" style="display:none">
+                            
+                            <!-- Formspree configuration -->
+                            <input type="hidden" name="_subject" value="New Moving Quote Request - Jonk Movers">
+                            <input type="hidden" name="_cc" value="ssaazifrank6@gmail.com">
+                            <input type="hidden" name="_autoresponse" value="Thank you for contacting Jonk Movers Inc. We've received your quote request and will get back to you within 24 hours.">
+                            
                             <div>
                                 <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">
                                     Full Name <span class="text-red-500">*</span>
@@ -159,8 +168,10 @@
                                 <input 
                                     type="text" 
                                     id="fullName" 
-                                    name="fullName" 
+                                    name="name" 
                                     required
+                                    minlength="2"
+                                    maxlength="100"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition"
                                     placeholder="John Smith">
                                 <span class="text-red-500 text-sm hidden" id="fullName-error">Please enter your full name</span>
@@ -176,6 +187,7 @@
                                         id="email" 
                                         name="email" 
                                         required
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition"
                                         placeholder="john@example.com">
                                     <span class="text-red-500 text-sm hidden" id="email-error">Please enter a valid email</span>
@@ -190,6 +202,7 @@
                                         id="phone" 
                                         name="phone" 
                                         required
+                                        pattern="[\d\s\-\(\)\+]{10,}"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition"
                                         placeholder="(416) 123-4567">
                                     <span class="text-red-500 text-sm hidden" id="phone-error">Please enter a valid phone number</span>
@@ -237,6 +250,8 @@
                                     name="message" 
                                     rows="5" 
                                     required
+                                    minlength="10"
+                                    maxlength="1000"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition resize-none"
                                     placeholder="Tell us about your moving needs..."></textarea>
                                 <span class="text-red-500 text-sm hidden" id="message-error">Please enter a message</span>
@@ -245,6 +260,7 @@
                             <div>
                                 <button 
                                     type="submit" 
+                                    id="submit-btn"
                                     class="w-full bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary transition shadow-lg">
                                     <i class="fas fa-paper-plane mr-2"></i>Send Request
                                 </button>
@@ -253,6 +269,11 @@
                             <div id="form-success" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg">
                                 <p class="font-semibold">Thank you for contacting us!</p>
                                 <p>We'll get back to you within 24 hours.</p>
+                            </div>
+                            
+                            <div id="form-error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
+                                <p class="font-semibold">Oops! Something went wrong.</p>
+                                <p>Please try again or call us directly at +1 (437) 452-1402</p>
                             </div>
                         </form>
                     </div>
@@ -268,8 +289,8 @@
             <div class="text-center">
                 <h2 class="text-3xl font-bold mb-4">Need Immediate Assistance?</h2>
                 <p class="text-xl text-gray-200 mb-8">Our team is ready to help you right now.</p>
-                <a href="tel:+1234567890" class="inline-block bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition shadow-lg text-xl">
-                    <i class="fas fa-phone-alt mr-3"></i>Call +1 (xxx) xxx-xxxx
+                <a href="tel:+14374521402" class="inline-block bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition shadow-lg text-xl">
+                    <i class="fas fa-phone-alt mr-3"></i>Call +1 (437) 452-1402
                 </a>
             </div>
         </div>
@@ -313,17 +334,17 @@
                 <div>
                     <h3 class="font-bold text-lg mb-4">Contact Info</h3>
                     <ul class="space-y-3">
-                        <li class="flex items-start">
+                        <li class="flex items-center">
                             <i class="fas fa-map-marker-alt text-secondary mr-3 mt-1"></i>
-                            <span class="text-gray-400">Toronto, Ontario<br>Canada</span>
+                            <span class="text-gray-400">87 Jameson Avenue<br>Toronto, Ontario, Canada</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone text-secondary mr-3"></i>
-                            <a href="tel:+1234567890" class="text-gray-400 hover:text-secondary transition">+1 (xxx) xxx-xxxx</a>
+                            <a href="tel:+14374521402" class="text-gray-400 hover:text-secondary transition">+1 (437) 452-1402</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope text-secondary mr-3"></i>
-                            <a href="mailto:info@jonkmovers.ca" class="text-gray-400 hover:text-secondary transition">info@jonkmovers.ca</a>
+                            <a href="mailto:ssaazifrank6@gmail.com" class="text-gray-400 hover:text-secondary transition">ssaazifrank6@gmail.com</a>
                         </li>
                     </ul>
                 </div>

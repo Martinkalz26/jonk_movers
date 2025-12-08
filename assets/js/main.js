@@ -31,7 +31,58 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Initialize slideshow
+    initSlideshow();
 });
+
+// Hero Image Slideshow
+let slideIndex = 0;
+let slideTimer;
+
+function initSlideshow() {
+    const slides = document.getElementsByClassName('slide');
+    if (slides.length > 0) {
+        showSlides();
+    }
+}
+
+function showSlides() {
+    const slides = document.getElementsByClassName('slide');
+    const dots = document.getElementsByClassName('dot');
+    
+    // Hide all slides
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    
+    // Remove active class from all dots
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' active', '');
+    }
+    
+    // Show current slide and highlight dot
+    if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].style.display = 'block';
+    }
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].className += ' active';
+    }
+    
+    // Change slide every 4 seconds
+    slideTimer = setTimeout(showSlides, 4000);
+}
+
+function currentSlide(n) {
+    clearTimeout(slideTimer);
+    slideIndex = n - 1;
+    showSlides();
+}
 
 // Smooth Scrolling for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -51,13 +102,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const contactForm = document.getElementById('contact-form');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Reset previous error messages
         document.querySelectorAll('.text-red-500').forEach(error => {
             error.classList.add('hidden');
         });
+        
+        // Hide any previous messages
+        document.getElementById('form-success').classList.add('hidden');
+        document.getElementById('form-error').classList.add('hidden');
         
         // Get form values
         const fullName = document.getElementById('fullName').value.trim();
@@ -69,8 +124,8 @@ if (contactForm) {
         let isValid = true;
         
         // Validate Full Name
-        if (fullName === '') {
-            showError('fullName', 'Please enter your full name');
+        if (fullName === '' || fullName.length < 2) {
+            showError('fullName', 'Please enter your full name (at least 2 characters)');
             isValid = false;
         }
         
@@ -85,12 +140,12 @@ if (contactForm) {
         }
         
         // Validate Phone
-        const phoneRegex = /^[\d\s\-\(\)]+$/;
+        const phoneRegex = /^[\d\s\-\(\)\+]{10,}$/;
         if (phone === '') {
             showError('phone', 'Please enter your phone number');
             isValid = false;
         } else if (phone.length < 10 || !phoneRegex.test(phone)) {
-            showError('phone', 'Please enter a valid phone number');
+            showError('phone', 'Please enter a valid phone number (at least 10 digits)');
             isValid = false;
         }
         
@@ -109,22 +164,64 @@ if (contactForm) {
             isValid = false;
         }
         
-        // If form is valid, show success message
+        // If form is valid, submit to Formspree
         if (isValid) {
-            // Here you would typically send the form data to a server
-            // For demo purposes, we'll just show a success message
+            const submitBtn = document.getElementById('submit-btn');
+            const originalBtnText = submitBtn.innerHTML;
             
-            contactForm.reset();
-            const successMessage = document.getElementById('form-success');
-            successMessage.classList.remove('hidden');
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
             
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.classList.add('hidden');
-            }, 5000);
+            try {
+                // Submit form data using Fetch API
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success - show success message
+                    contactForm.reset();
+                    const successMessage = document.getElementById('form-success');
+                    successMessage.classList.remove('hidden');
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    
+                    // Hide success message after 10 seconds
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                    }, 10000);
+                } else {
+                    // Error - show error message
+                    const errorMessage = document.getElementById('form-error');
+                    errorMessage.classList.remove('hidden');
+                    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    
+                    // Hide error message after 8 seconds
+                    setTimeout(() => {
+                        errorMessage.classList.add('hidden');
+                    }, 8000);
+                }
+            } catch (error) {
+                // Network error - show error message
+                const errorMessage = document.getElementById('form-error');
+                errorMessage.classList.remove('hidden');
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                setTimeout(() => {
+                    errorMessage.classList.add('hidden');
+                }, 8000);
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
         }
     });
     
