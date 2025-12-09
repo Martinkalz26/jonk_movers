@@ -164,7 +164,7 @@ if (contactForm) {
             isValid = false;
         }
         
-        // If form is valid, submit to Formspree
+        // If form is valid, submit to PHP
         if (isValid) {
             const submitBtn = document.getElementById('submit-btn');
             const originalBtnText = submitBtn.innerHTML;
@@ -184,10 +184,16 @@ if (contactForm) {
                     }
                 });
                 
-                if (response.ok) {
+                const result = await response.json();
+                
+                if (result.success || response.ok) {
                     // Success - show success message
                     contactForm.reset();
                     const successMessage = document.getElementById('form-success');
+                    const successText = successMessage.querySelector('p');
+                    if (successText) {
+                        successText.textContent = result.message;
+                    }
                     successMessage.classList.remove('hidden');
                     
                     // Scroll to success message
@@ -200,6 +206,15 @@ if (contactForm) {
                 } else {
                     // Error - show error message
                     const errorMessage = document.getElementById('form-error');
+                    const errorText = errorMessage.querySelector('p');
+                    
+                    // If there are specific validation errors, show them
+                    if (result.errors && result.errors.length > 0) {
+                        errorText.innerHTML = '<strong>Please correct the following:</strong><br>' + result.errors.join('<br>');
+                    } else if (result.message) {
+                        errorText.textContent = result.message;
+                    }
+                    
                     errorMessage.classList.remove('hidden');
                     errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     
@@ -211,6 +226,8 @@ if (contactForm) {
             } catch (error) {
                 // Network error - show error message
                 const errorMessage = document.getElementById('form-error');
+                const errorText = errorMessage.querySelector('p');
+                errorText.textContent = 'Network error. Please try again or call us at +1 (437) 452-1402';
                 errorMessage.classList.remove('hidden');
                 errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 

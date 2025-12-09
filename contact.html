@@ -152,17 +152,16 @@
                         <h2 class="text-3xl font-bold text-primary mb-2">Request a Quote</h2>
                         <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you shortly.</p>
                         
-                        <form id="contact-form" action="https://formspree.io/f/xeoyllpp" method="POST" class="space-y-6">
-                            <!-- Honeypot field for spam protection (hidden from users) -->
-                            <input type="text" name="_gotcha" style="display:none">
+                        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                            <!-- Web3Forms Access Key - Get yours FREE at web3forms.com -->
+                            <input type="hidden" name="access_key" value="56090663-911b-4438-9731-1de32d4e050d">
                             
-                            <!-- Formspree configuration -->
-                            <input type="hidden" name="_subject" value="🚚 New Moving Quote Request - Jonk Movers Inc.">
-                            <input type="hidden" name="_replyto" value="ssaazifrank6@gmail.com">
-                            <input type="hidden" name="_template" value="table">
+                            <!-- Email Configuration -->
+                            <input type="hidden" name="subject" value="🚚 New Moving Quote Request - Jonk Movers Inc.">
+                            <input type="hidden" name="from_name" value="Jonk Movers Website">
                             
-                            <!-- Custom field labels for better email formatting -->
-                            <input type="hidden" name="_format" value="html">>
+                            <!-- Honeypot spam protection -->
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                             
                             <div>
                                 <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">
